@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="rezervari.component.css">
+  <title>Booking Page</title>
+</head>
+
+<body>
+<app-header></app-header>
+
+<div class="search-container">
+  <div class="search-bar">
+    <div>
+      <input type="text" id="search-departure-city" placeholder="Oraș plecare" [(ngModel)]="departureCity" (input)="validateText($event, 'departureCity')" required>
+      <div *ngIf="departureCityError" class="error-message">{{ departureCityError }}</div>
+    </div>
+    <div>
+      <input type="text" id="search-arrival-city" placeholder="Oraș sosire" [(ngModel)]="arrivalCity" (input)="validateText($event, 'arrivalCity')" required>
+      <div *ngIf="arrivalCityError" class="error-message">{{ arrivalCityError }}</div>
+    </div>
+    <div>
+      <input type="number" id="search-children" placeholder="Număr copii" [(ngModel)]="children" (input)="validateNumber($event,'children')" min="0">
+    </div>
+    <div>
+      <input type="number" id="search-adults" placeholder="Număr adulți" [(ngModel)]="adults" (input)="validateNumber($event,'adults')" min="0">
+    </div>
+    <div>
+      <input type="number" id="search-seniors" placeholder="Număr seniori" [(ngModel)]="seniors" (input)="validateNumber($event,'seniors')" min="0">
+    </div>
+    <div>
+      <input type="text" id="search-name" placeholder="Nume" [(ngModel)]="name" (input)="validateText($event, 'name')" required>
+      <div *ngIf="nameError" class="error-message">{{ nameError }}</div>
+    </div>
+    <select id="search-class">
+      <option value="economy">Economy</option>
+      <option value="business">Business</option>
+      <option value="first">First Class</option>
+    </select>
+    <select id="search-flight-type" (change)="toggleDates()">
+      <option value="one-way">Dus</option>
+      <option value="round-trip">Dus-întors</option>
+    </select>
+    <input type="date" id="search-departure-date" placeholder="Data dusului" min="2024-01-01" max="2025-12-31">
+    <input type="date" id="search-return-date" placeholder="Data întoarcerii" min="2024-01-01" max="2025-12-31" style="display: none;">
+    <button type="button" (click)="searchFlights(departureCity,arrivalCity)">Caută zboruri</button>
+  </div>
+</div>
+
+<div class="test2">
+  <div class="test" *ngFor="let fel of zboruri">
+    <div class="food-item">
+      <img src="assets/logo.jpg" alt="Flight Image">
+      <div class="food-details">
+        <h3 class="food-name">Nume: {{ fel.nume_companie }}</h3>
+        <p class="food-description">Plecare: {{fel.sursa}}</p>
+        <p class="food-weight">Sosire: {{fel.destinatie}}</p>
+        <p class="food-price">Pret: {{fel.pret}}$</p>
+        <!-- Add other details as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<app-header></app-header>
+<html>
+<body>
+<div class="main">
+  <input type="checkbox" id="chk" aria-hidden="true">
+
+  <div class="signup">
+    <form>
+      <label for="chk" aria-hidden="true">Sign up</label>
+      <input type="text" name="txt" placeholder="Username" required="" [(ngModel)]="user.nume">
+
+      <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="user.email">
+<!--      <input type="number" name="broj" placeholder="BrojTelefona" required="">-->
+      <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="user.parola">
+      <input type="text" name="txt" placeholder="Rol" required="" [(ngModel)]="user.rol">
+      <button (click)="onClick()">Sign up</button>
+    </form>
+  </div>
+
+  <div class="login">
+    <form>
+      <label for="chk" aria-hidden="true">Login</label>
+      <input type="email" name="email" placeholder="Email" required="">
+      <input type="password" name="pswd" placeholder="Password" required="">
+
+      <button>Login</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

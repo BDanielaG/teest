@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="body">
+<body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nice-forms.css</title>
+  <link rel="stylesheet" href="add-zbor.component.css" />
+</head>
+<body>
+<input type="text" placeholder="Cod zbor:" [(ngModel)]="zbor.cod_zbor" />
+
+<input type="number" placeholder="Numar locuri total" [(ngModel)]="zbor.nr_locuri_total"/>
+
+<input type="text" placeholder="Nume companie" [(ngModel)]="zbor.nume_companie" />
+
+<input type="number" placeholder="Pret" [(ngModel)]="zbor.pret"/>
+
+<input type="text" placeholder="Sursa:" [(ngModel)]="zbor.sursa" />
+
+<input type="text" placeholder="Destinatie" [(ngModel)]="zbor.destinatie"/>
+
+<input type="number" placeholder="Numar locuri seniori" [(ngModel)]="zbor.nr_locuri_seniori"/>
+<input type="number" placeholder="Numar locuri adulti" [(ngModel)]="zbor.nr_locuri_adulti"/>
+<input type="number" placeholder="Numar locuri copii" [(ngModel)]="zbor.nr_locuri_copii"/>
+<input type="number" placeholder="Locuri business" [(ngModel)]="zbor.locuri_business"/>
+<input type="number" placeholder="Locuri economy" [(ngModel)]="zbor.locuri_economy"/>
+<input type="number" placeholder="Locuri first" [(ngModel)]="zbor.locuri_first"/>
+
+<input type="text" placeholder="Zile de operare" [(ngModel)]="zbor.zile_operare" />
+
+<h5>Data de plecare:</h5>
+<div>
+  <input type="date" [(ngModel)]="zbor.ora_plecare" />
+</div>
+
+<h5>Data de sosire:</h5>
+<div>
+  <input type="date" [(ngModel)]="zbor.ora_sosire" />
+</div>
+
+<button type="button" (click)="onClick()">Salvare</button>
+</body>
+</html>
+</body>
+</div>

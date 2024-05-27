@@ -1,0 +1,93 @@
+
+/*.shopping {*/
+/*  position: fixed;*/
+/*  top: 0.4rem;*/
+/*  right:1.5rem;*/
+/*}*/
+
+/*.shopping button{*/
+/*  width: 30px;*/
+/*  height: 30px;*/
+/*  min-width: 32px !important;*/
+/*}*/
+
+.login{
+  position: fixed;
+  top: 0.4rem;
+  right:2.5rem;
+}
+
+.login button {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  width: 47px;
+  height: 30px;
+  min-width: 32px !important;
+}
+
+.home {
+  position: fixed;
+  top: 0.4rem;
+  left: 1.2rem;
+}
+
+.home button{
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  width: 30px;
+  height: 30px;
+  min-width: 32px !important;
+}
+
+.signup{
+  position: fixed;
+  top: 0.4rem;
+  right:6rem;
+}
+
+.signup button{
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  width: 55px;
+  height: 30px;
+  min-width: 32px !important;
+}
+
+.header {
+  background-color: white;/* Buttercup yellow */
+  padding: 1.3rem; /* Add padding for spacing */
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.add-flight {
+  position: fixed;
+  top: 0.4rem;
+  right: 10rem;
+}
+
+.add-flight button {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  width: 80px;
+  height: 30px;
+  min-width: 32px !important;
+}
+
+.utilizator {
+  position: fixed;
+  top: 0.4rem;
+  right: 10rem;
+}
+
+.utilizator button {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  width: 80px;
+  height: 30px;
+  min-width: 32px !important;
+}

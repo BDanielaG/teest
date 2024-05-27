@@ -1,0 +1,26 @@
+<section>
+  <div class="header">
+<!--    <div class="shopping">-->
+<!--      <button mat-raised-button class="button small-button" (click)="goToCart()">-->
+<!--        <i class="material-icons" matBadge="0" matBadgePosition="below" matBadgeColor="warn">shopping_cart</i>-->
+<!--      </button>-->
+<!--    </div>-->
+    <div class="login">
+      <button mat-raised-button (click)="goToLogin()">Login</button>
+    </div>
+    <div class="signup">
+      <button mat-raised-button (click)="goToSignup()">Signup</button>
+    </div>
+    <div class="home">
+      <button mat-raised-button class="button small-button" (click)="goToLandingPage()">
+        <i class="material-icons">home</i>
+      </button>
+    </div>
+    <div *ngIf="role === 'admin'" class="add-flight">
+      <button mat-raised-button (click)="addFlight()">Add Flight</button>
+    </div>
+    <div *ngIf="role === 'utilizator'" class="utilizator">
+      <button mat-raised-button (click)="goToRezervare()">Rezerva</button>
+    </div>
+  </div>
+</section>
