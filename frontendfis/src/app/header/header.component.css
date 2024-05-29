@@ -18,11 +18,13 @@
 }
 
 .login button {
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  color: white;
+  /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+  color: #302b63;
   width: 47px;
   height: 30px;
   min-width: 32px !important;
+  /*font-size: 1em;*/
+  font-weight: bold;
 }
 
 .home {
@@ -32,11 +34,13 @@
 }
 
 .home button{
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  color: white;
+  /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+  color: #302b63;
   width: 30px;
   height: 30px;
   min-width: 32px !important;
+  font-size: 1em;
+  font-weight:bold;
 }
 
 .signup{
@@ -46,15 +50,17 @@
 }
 
 .signup button{
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  color: white;
+  /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+  color: #302b63;
   width: 55px;
   height: 30px;
   min-width: 32px !important;
+  font-family: 'Jost', sans-serif;
+  font-weight: bold;
 }
 
 .header {
-  background-color: white;/* Buttercup yellow */
+  background:#302b63;
   padding: 1.3rem; /* Add padding for spacing */
   display: flex;
   justify-content: space-between; /* Distribute items evenly */
@@ -71,8 +77,8 @@
 }
 
 .add-flight button {
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  color: white;
+  /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+  color: #302b63;
   width: 80px;
   height: 30px;
   min-width: 32px !important;
@@ -85,8 +91,8 @@
 }
 
 .utilizator button {
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  color: white;
+  /*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
+  color: #302b63;
   width: 80px;
   height: 30px;
   min-width: 32px !important;

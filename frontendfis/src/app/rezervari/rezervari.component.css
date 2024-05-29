@@ -84,6 +84,18 @@ button[type="button"]:hover {
   margin: 2em auto;
   width: 90%;
 }
+.no-flights-message {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffeb3b;
+  border: 1px solid #ffeb3b;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #856404;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 .food-item {
   z-index: 0;

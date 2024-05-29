@@ -26,8 +26,10 @@ export class LoginComponent implements OnInit {
   username: string = '';
   parola: string = '';
   role: string = '';
+  id: number;
   errorMessage: string = '';
   loggedin:boolean;
+
 
   constructor(private http: HttpClient, private router: Router, private authservice: AuthService) { }
 
@@ -56,6 +58,7 @@ export class LoginComponent implements OnInit {
           if (data) {
             this.user = data;
             this.loggedin=true;
+            // this this.id=this.user.
             this.role = this.user.rol; // Assuming "rol" is the role field in Utilizator
             console.log('User:', this.user);
             console.log('Role:', this.role);

@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <div class="body">
 <body>
 <html lang="en">
@@ -9,15 +9,14 @@
   <link rel="stylesheet" href="add-zbor.component.css" />
 </head>
 <body>
+<div class="search-container">
 <input type="text" placeholder="Cod zbor:" [(ngModel)]="zbor.cod_zbor" />
 
 <input type="number" placeholder="Numar locuri total" [(ngModel)]="zbor.nr_locuri_total"/>
 
 <input type="text" placeholder="Nume companie" [(ngModel)]="zbor.nume_companie" />
 
-<input type="number" placeholder="Pret" [(ngModel)]="zbor.pret"/>
-
-<input type="text" placeholder="Sursa:" [(ngModel)]="zbor.sursa" />
+<input type="text" placeholder="Sursa:" [(ngModel)]="zbor.orasdus" />
 
 <input type="text" placeholder="Destinatie" [(ngModel)]="zbor.destinatie"/>
 
@@ -25,23 +24,59 @@
 <input type="number" placeholder="Numar locuri adulti" [(ngModel)]="zbor.nr_locuri_adulti"/>
 <input type="number" placeholder="Numar locuri copii" [(ngModel)]="zbor.nr_locuri_copii"/>
 <input type="number" placeholder="Locuri business" [(ngModel)]="zbor.locuri_business"/>
+  <input type="number" placeholder="Pret business" [(ngModel)]="zbor.pret_business"/>
 <input type="number" placeholder="Locuri economy" [(ngModel)]="zbor.locuri_economy"/>
+  <input type="number" placeholder="Pret economy" [(ngModel)]="zbor.pret_economy"/>
 <input type="number" placeholder="Locuri first" [(ngModel)]="zbor.locuri_first"/>
-
+  <input type="number" placeholder="Pret firstclass" [(ngModel)]="zbor.pret_firstclass"/>
 <input type="text" placeholder="Zile de operare" [(ngModel)]="zbor.zile_operare" />
+  <input type="number" placeholder="Reducere retur" [(ngModel)]="zbor.discount_retur" />
+  <input type="number" placeholder="Reducere last minute" [(ngModel)]="zbor.discount_last_minute" />
+<p></p>
+  <div>
 
-<h5>Data de plecare:</h5>
-<div>
-  <input type="date" [(ngModel)]="zbor.ora_plecare" />
+    <input type="time" value="13:30" />
+    <label>Ora plecare</label>
+  </div>
+  <div>
+<p></p>
+    <input type="time" value="13:30" />
+    <label>Ora sosire</label>
+  </div>
+<!--<h5>Data de plecare:</h5>-->
+
+<div>  <input type="date">
+  <label>Data plecare</label>
 </div>
+  <div>  <input type="date">
+    <label>Data sosire</label>
+  </div>
 
-<h5>Data de sosire:</h5>
-<div>
-  <input type="date" [(ngModel)]="zbor.ora_sosire" />
-</div>
 
+<div class="buttons-container">
 <button type="button" (click)="onClick()">Salvare</button>
+  <button class="stergere" type="button" (click)="onClick()">Afiseaza</button>
+<button class="editare" type="button1" (click)="onClick()">Editare</button>
+<button class="stergere" type="button2" (click)="onClick()">Stergere</button>
+
+</div>
+</div>
 </body>
+<div class="test2">
+  <div class="test" *ngFor="let fel of zboruri">
+    <div class="food-item">
+      <img src="assets/logo.jpg" alt="Flight Image">
+      <div class="food-details">
+        <h3 class="food-name">Nume: {{ fel.nume_companie }}</h3>
+        <p class="food-description">Plecare: {{fel.orasdus}}</p>
+        <p class="food-weight">Sosire: {{fel.destinatie}}</p>
+        <p class="food-price">Pret: {{fel.pret_economy}}$</p>
+        <!-- Add other details as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+<app-header></app-header>
 </html>
 </body>
 </div>

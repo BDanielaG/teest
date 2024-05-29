@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalii Zbor</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="formular">
+    <form action="" method="post" (ngSubmit)="realizeazaRezervare()">
+      <input type="text" placeholder="Nume:" required />
+      <input type="text" placeholder="Prenume:" required />
+      <input type="email" placeholder="Email" required />
+      <input type="tel" placeholder="Numar de telefon" pattern="^(\+?4?0)?[0-9]{9}$" title="Introduceti va rog un numar de telefon valid (care incepe cu 0 sau +40, urmat de 9 cifre)" required />
+      <input type="number" placeholder="Varsta:" required />
+      <select id="search-class">
+        <option value="economy">Economy</option>
+        <option value="business">Business</option>
+        <option value="first">First Class</option>
+      </select>
+      <div class="form-group">
+        <label>Metoda de Plata:</label>
+        <div class="payment-methods">
+          <div class="payment-method">
+            <input type="radio" id="credit-card" name="payment-method" value="credit-card" required />
+            <label for="credit-card">Carte de Credit</label>
+          </div>
+          <div class="payment-method">
+            <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" required />
+            <label for="bank-transfer">Virament Bancar</label>
+          </div>
+          <div class="payment-method">
+            <input type="radio" id="cash" name="payment-method" value="cash" required />
+            <label for="cash">Cash</label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" >Salveaza</button>
+    </form>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+  </div>
+
+  <div class="detalii-zbor" *ngIf="zbor">
+    <h3>Detalii Zbor</h3>
+    <div class="imagineLogo">
+      <img src="assets/logo.jpg" alt="Logo Companie" />
+    </div>
+    <p><strong>Cod zbor:</strong> {{ zbor.cod_zbor }}</p>
+    <p><strong>Numar locuri total:</strong> {{ zbor.nr_locuri_total }}</p>
+    <p><strong>Pret:</strong> {{ zbor.pret_economy }}$</p>
+    <p><strong>Oraș de plecare:</strong> {{ zbor.orasdus }}</p>
+    <p><strong>Destinatie:</strong> {{ zbor.destinatie }}</p>
+    <p><strong>Ora plecarii:</strong> {{ zbor.data_plecare }}</p>
+    <p><strong>Ora sosirii:</strong> {{ zbor.data_sosire }}</p>
+  </div>
+  <div *ngIf="!zbor">
+    <p class="no-flights-message">Nu s-au găsit detalii despre zbor.</p>
+  </div>
+</div>
+<app-header></app-header>
+</body>
+</html>

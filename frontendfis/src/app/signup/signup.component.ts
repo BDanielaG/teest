@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 import {Zbor} from "../header/Zbor";
 import {FormsModule} from "@angular/forms";
 import {Utilizator} from "../header/Utilizator";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,8 @@ import {Utilizator} from "../header/Utilizator";
     MatInput,
     MatLabel,
     HeaderComponent,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
@@ -28,6 +30,8 @@ import {Utilizator} from "../header/Utilizator";
 export class SignupComponent {
   user: Utilizator=new Utilizator();
   useri:Utilizator[]=[];
+  successMessage: string | null = null;
+
   constructor(private http: HttpClient,private router:Router) {
   }
 
@@ -35,5 +39,9 @@ export class SignupComponent {
   {
     console.log(this.user);
     this.http.post("http://localhost:8080/create/user", this.user).subscribe();
+    this.successMessage = 'Rezervare realizată cu succes!';
+    setTimeout(() => {
+      this.successMessage = null;
+    }, 1700);
   }
 }

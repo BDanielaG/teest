@@ -6,5 +6,7 @@ export class Rezervari{
   nr_locuri_copii:number;
   nr_locuri_adulti:number;
   nr_locuri_seniori:number;
-
+  tip_clasa:string;
+  discount_retur:number;
+  discount_last_minute:number;
 }

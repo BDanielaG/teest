@@ -31,19 +31,31 @@
     <div>
       <input type="number" id="search-seniors" placeholder="Număr seniori" [(ngModel)]="seniors" (input)="validateNumber($event,'seniors')" min="0">
     </div>
-    <div>
-      <input type="text" id="search-name" placeholder="Nume" [(ngModel)]="name" (input)="validateText($event, 'name')" required>
-      <div *ngIf="nameError" class="error-message">{{ nameError }}</div>
-    </div>
-    <select id="search-class">
-      <option value="economy">Economy</option>
-      <option value="business">Business</option>
-      <option value="first">First Class</option>
-    </select>
+<!--    <div>-->
+<!--      <input type="number" id="search-copii" placeholder="Număr seniori" [(ngModel)]="seniors" (input)="validateNumber($event,'seniors')" min="0">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <input type="text" id="search-name" placeholder="Nume" [(ngModel)]="name" (input)="validateText($event, 'name')" required>-->
+<!--      <div *ngIf="nameError" class="error-message">{{ nameError }}</div>-->
+<!--    </div>-->
+<!--    <select id="search-class">-->
+<!--      <option value="economy">Economy</option>-->
+<!--      <option value="business">Business</option>-->
+<!--      <option value="first">First Class</option>-->
+<!--    </select>-->
     <select id="search-flight-type" (change)="toggleDates()">
       <option value="one-way">Dus</option>
       <option value="round-trip">Dus-întors</option>
     </select>
+<!--    </select>-->
+    <!-- number-select.component.html -->
+<!--    <label >Select a number:</label>-->
+<!--    <select id="Numar locuri copii" [(ngModel)]="zbor.nr_locuri_copii">-->
+<!--      <option *ngFor="let number of numbers" [value]="number">{{ number }}</option>-->
+<!--    </select>-->
+
+
+
     <input type="date" id="search-departure-date" placeholder="Data dusului" min="2024-01-01" max="2025-12-31">
     <input type="date" id="search-return-date" placeholder="Data întoarcerii" min="2024-01-01" max="2025-12-31" style="display: none;">
     <button type="button" (click)="searchFlights(departureCity,arrivalCity)">Caută zboruri</button>
@@ -51,19 +63,26 @@
 </div>
 
 <div class="test2">
-  <div class="test" *ngFor="let fel of zboruri">
-    <div class="food-item">
+  <div class="test" *ngFor="let fel of zboruri" (click)="openFlight(fel.id)">
+    <div class="food-item" >
       <img src="assets/logo.jpg" alt="Flight Image">
       <div class="food-details">
         <h3 class="food-name">Nume: {{ fel.nume_companie }}</h3>
-        <p class="food-description">Plecare: {{fel.sursa}}</p>
+        <p class="food-description">Plecare: {{fel.orasdus}}</p>
         <p class="food-weight">Sosire: {{fel.destinatie}}</p>
-        <p class="food-price">Pret: {{fel.pret}}$</p>
+        <p class="food-price">Pret: {{fel.pret_economy}}$</p>
         <!-- Add other details as needed -->
       </div>
     </div>
   </div>
 </div>
+
+
+
+<div *ngIf="noFlightsFound" class="no-flights-message">
+  Nu s-au găsit zboruri!
+</div>
+
 </body>
 
 </html>

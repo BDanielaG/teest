@@ -11,9 +11,22 @@ html {
   box-sizing: border-box;
 }
 
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #302b63;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1000px;
+}
+
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  color: white;
+  color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 700px;
@@ -22,8 +35,12 @@ body {
 }
 
 .body {
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background: #d3d9f3;
   min-height: 100vh;
+  width: 60%;
+  justify-content: center;
+  position: relative;
+  left:20%;
 }
 
 input[type="text"],
@@ -43,7 +60,7 @@ button[type="button"] {
   font-size: 1.2rem; /* Adjust the font size as needed */
   padding: 0.5em 1em; /* Adjust the padding as needed */
   border-radius: 5px;
-  background-color: #4caf50; /* Change the background color as needed */
+  background-color: #4caf50 ; /* Change the background color as needed */
   color: white;
   border: none;
   cursor: pointer;
@@ -52,4 +69,137 @@ button[type="button"] {
 
 button[type="button"]:hover {
   background-color: #45a049; /* Change the hover background color as needed */
+}
+
+.buttons-container{
+  display: flex ;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+button[type="button1"] {
+  font-size: 1.2rem; /* Adjust the font size as needed */
+  padding: 0.5em 1em; /* Adjust the padding as needed */
+  border-radius: 5px;
+  background-color: #ffcc50 ; /* Change the background color as needed */
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button[type="button1"]:hover {
+  background-color: #ECC23C; /* Change the hover background color as needed */
+}
+
+button[type="button2"] {
+  font-size: 1.2rem; /* Adjust the font size as needed */
+  padding: 0.5em 1em; /* Adjust the padding as needed */
+  border-radius: 5px;
+  background-color: #FF2727 ; /* Change the background color as needed */
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button[type="button2"]:hover {
+  background-color: #A72828; /* Change the hover background color as needed */
+}
+
+/*.stergere{*/
+/*  position: relative;*/
+/*  left: 40%;*/
+/*  top:100%;*/
+/*}*/
+
+.test2 {
+  z-index: 0;
+  display: flex;
+  flex-direction: column; /* Display items in a single column */
+  gap: 2rem;
+  position: relative;
+  margin: 2em auto;
+  width: 100%;
+}
+
+.food-item {
+  z-index: 0;
+  padding: 15px; /* Added padding for better spacing */
+  background-color: #fff;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; /* Flexbox for better alignment */
+}
+
+.food-item img {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px; /* Spacing between image and details */
+}
+
+.food-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+.food-name {
+  margin-top: 0;
+}
+
+.food-description {
+  margin-bottom: 10px;
+}
+
+.food-weight,
+.food-price {
+  margin: 5px 0;
+}
+
+/* Header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+  background-color: #333;
+}
+
+nav ul li a:active {
+  transform: translateY(2px);
 }

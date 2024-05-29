@@ -24,10 +24,10 @@ import {of} from "rxjs";
   styleUrl: './rezervari.component.css'
 })
 export class RezervariComponent {
-  rezervare: Rezervari=new Rezervari();
-  rezervari: Rezervari[]=[];
-  zbor: Zbor=new Zbor();
-  zboruri:Zbor[]=[];
+  rezervare: Rezervari = new Rezervari();
+  rezervari: Rezervari[] = [];
+  zbor: Zbor = new Zbor();
+  zboruri: Zbor[] = [];
   departureCity: string;
   arrivalCity: string;
   children: number;
@@ -45,6 +45,7 @@ export class RezervariComponent {
   childrenError: string;
   adultsError: string;
   seniorsError: string;
+  noFlightsFound: boolean = false; // Flag to indicate no flights found
 
   validateText(event: Event, field: string): void {
     const input = event.target as HTMLInputElement;
@@ -79,7 +80,7 @@ export class RezervariComponent {
     }
   }
 
-  validateNumber(event: Event,field: string): void {
+  validateNumber(event: Event, field: string): void {
     const input = event.target as HTMLInputElement;
     const value = input.value;
     const regex = /^[0-9]*$/; // Only numbers
@@ -127,14 +128,11 @@ export class RezervariComponent {
 
     // If all validations pass
     this.errorMessage = "";
-    this.searchFlights(this.departureCity,this.arrivalCity);
+    this.searchFlights(this.departureCity, this.arrivalCity);
   }
 
-
-
   searchFlights(departureCity: string, arrivalCity: string): void {
-    this.http.get<Zbor[]>('http://localhost:8080/getZbor/'+departureCity+'/'+arrivalCity)
-
+    this.http.get<Zbor[]>('http://localhost:8080/getZbor/' + departureCity + '/' + arrivalCity)
       .pipe(
         catchError(error => {
           console.error('Error:', error);
@@ -145,46 +143,14 @@ export class RezervariComponent {
       .subscribe(
         data => {
           this.zboruri = data;
-          // if (data.length === 0) {
-          //   this.errorMessage = 'No flights found for the selected route.';
-          // }
+          if (data.length === 0) {
+            this.noFlightsFound = true; // Set the flag to true if no flights are found
+          } else {
+            this.noFlightsFound = false; // Reset the flag if flights are found
+          }
         }
       );
   }
-  // getUser(username: string, parola: string): void {
-  //   const url = `http://localhost:8080/getUser/${username}/${parola}`;
-  //   this.http.get<Utilizator>(url)
-  //     .pipe(
-  //       catchError(error => {
-  //         console.error('Error:', error);
-  //         return of(null); // Return an empty value if there's an error
-  //       })
-  //     )
-  //     .subscribe(
-  //       data => {
-  //         if (data) {
-  //           this.user = data;
-  //           this.role = this.user.rol; // Assuming "rol" is the role field in Utilizator
-  //           console.log('User:', this.user);
-  //           console.log('Role:', this.role);
-  //           this.authservice.Roles=this.role;
-  //           this.router.navigate(['/main']); // Navigate to different route or do something based on the role
-  //         } else {
-  //           this.errorMessage = 'User or password incorrect, please try again.';
-  //           console.error('User not found or error occurred');
-  //         }
-  //       }
-  //     );
-  // }
-
-  constructor(private http: HttpClient,private router:Router) {
-  }
-
-  // onClick()
-  // {
-  //   console.log(this.rezervare);
-  //   this.http.post("http://localhost:8080/create/zbor", this.rezervare).subscribe();
-  //
 
   toggleDates(): void {
     const departureDateInput = document.getElementById("search-departure-date") as HTMLInputElement;
@@ -200,43 +166,14 @@ export class RezervariComponent {
     }
   }
 
-  // validateAndSearch(): void {
-  //   const departureCityInput = document.getElementById("search-departure-city") as HTMLInputElement;
-  //   const arrivalCityInput = document.getElementById("search-arrival-city") as HTMLInputElement;
-  //   const nameInput = document.getElementById("search-name") as HTMLInputElement;
-  //
-  //   const departureCity = departureCityInput.value.trim();
-  //   const arrivalCity = arrivalCityInput.value.trim();
-  //   const name = nameInput.value.trim();
-  //
-  //   const namePattern = /^[A-Za-z\s]{3,}$/;
-  //   const cityPattern = /^[A-Za-z\s]{3,}$/;
-  //
-  //   if (departureCity === '' || !cityPattern.test(departureCity)) {
-  //     alert('Te rugăm să completezi orașul de plecare corect.');
-  //     return;
-  //   }
-  //
-  //   if (arrivalCity === '' || !cityPattern.test(arrivalCity)) {
-  //     alert('Te rugăm să completezi orașul de sosire corect.');
-  //     return;
-  //   }
-  //
-  //   if (name === '' || !namePattern.test(name)) {
-  //     alert('Te rugăm să completezi numele corect.');
-  //     return;
-  //   }
-  //   this.searchFlights();
-  // }
-  //
-  // searchFlights(): void {
-  //   // Implement the search logic here
-  //   console.log('Searching flights...');
-  // }
+  constructor(private http: HttpClient, private router: Router) {
+    this.selectedNumber = this.numbers[0];
+  }
 
-  ngOnInit()
-  {
+  numbers: number[] = Array.from({ length: 50 }, (_, i) => i + 1); // Generates numbers 1 to 50
+  selectedNumber: number;
 
+  ngOnInit() {
     this.http.get("http://localhost:8080/getAll/rezervare").subscribe(
       (data: any) => {
         this.rezervari = data;
@@ -250,5 +187,7 @@ export class RezervariComponent {
     );
   }
 
-
+  openFlight(id: number) {
+    this.router.navigateByUrl("/create/rezervare/" + id);
   }
+}

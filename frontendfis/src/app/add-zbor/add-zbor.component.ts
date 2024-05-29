@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {Zbor} from "../header/Zbor";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-add-zbor',
@@ -24,7 +25,8 @@ import {Router} from "@angular/router";
     MatButton,
     MatInput,
     MatDatepickerInput,
-    FormsModule
+    FormsModule,
+    NgForOf
   ],
   templateUrl: './add-zbor.component.html',
   styleUrl: './add-zbor.component.css'
